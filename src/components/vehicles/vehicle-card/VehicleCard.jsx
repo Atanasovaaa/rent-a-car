@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const vehicleContent = (vehicle) => {
     return(
@@ -27,6 +28,7 @@ const vehicleContent = (vehicle) => {
                                 <strong>Available: </strong><span>{vehicle.count}</span>
                             </div>
                         </div>
+                        <Link to={`/vehicles/edit/${vehicle.id}`}>Edit Vehicle</Link>
                 </Card.Body>
             </Card>
         </div>

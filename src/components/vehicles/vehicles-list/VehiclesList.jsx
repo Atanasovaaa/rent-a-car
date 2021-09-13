@@ -7,7 +7,6 @@ export default function VehiclesList() {
 
     useEffect(() => {
         getAllVehicles().then(response => {
-            console.log(response);
             setVehicles(response.data);
         })
     }, []);

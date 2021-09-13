@@ -7,7 +7,6 @@ export default function Vehicle(props) {
 
     useEffect(() => {
         getVehicleById(props.computedMatch.params.id).then(response => {
-            // console.log(response);
             setVehicle(response.data);
         })
     }, [props.computedMatch.params.id])

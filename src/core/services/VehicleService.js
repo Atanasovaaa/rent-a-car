@@ -9,3 +9,11 @@ export function getAllVehicles() {
 export function getVehicleById(id) {
     return axios.get(`${apiUrl}/vehicles/${id}`);
 }
+
+export function saveVehicle(vehicleData) {
+    if(vehicleData.id) {
+        return axios.put(`${apiUrl}/vehicles/${vehicleData.id}`, vehicleData)
+    }
+
+    return;
+}
