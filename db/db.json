@@ -1,0 +1,76 @@
+{
+    "vehicles": [
+        {
+            "id": "613f2e5d9b69de60371a94c6",
+            "brand": "Alfa Romeo",
+            "model": "Mito",
+            "year": 2018,
+            "vehicleType": "economy",
+            "fuelType": "petrol",
+            "numberOfSeats": 5,
+            "image": "alfa-romeo-mito.png",
+            "pricePerDay": 22,
+            "count": 2
+        },
+        {
+            "id": "613f2e5dd221f913ebdb1600",
+            "brand": "Audi",
+            "model": "A5",
+            "year": 2018,
+            "vehicleType": "economy",
+            "fuelType": "diesel",
+            "numberOfSeats": 5,
+            "image": "audi-a5.png",
+            "pricePerDay": 80,
+            "count": 4
+        },
+        {
+            "id": "613f2e5d821d869d9dfdcb4d",
+            "brand": "Chevrolet",
+            "model": "Cruze",
+            "year": 2019,
+            "vehicleType": "estate",
+            "fuelType": "hybrid",
+            "numberOfSeats": 5,
+            "image": "chevrolet-cruze.jpg",
+            "pricePerDay": 40,
+            "count": 2
+        },
+        {
+            "id": "613f2e5dec98180fb9296641",
+            "brand": "Chevrolet",
+            "model": "Orlando",
+            "year": 2019,
+            "vehicleType": "hybrid",
+            "fuelType": "petrol",
+            "numberOfSeats": 5,
+            "image": "chevrolet-orlando.png",
+            "pricePerDay": 50,
+            "count": 3
+        },
+        {
+            "id": "613f2e5d24b3049a4af7b2f6",
+            "brand": "Dachia",
+            "model": "Sandero",
+            "year": 2018,
+            "vehicleType": "SUV",
+            "fuelType": "electric",
+            "numberOfSeats": 5,
+            "image": "dacia-sandero.jpg",
+            "pricePerDay": 30,
+            "count": 4
+        },
+        {
+            "id": "613f2e5d0bb30f3dd3a2faf2",
+            "brand": "Fiat",
+            "model": "Croma",
+            "year": 2020,
+            "vehicleType": "cargo",
+            "fuelType": "petrol",
+            "numberOfSeats": 5,
+            "image": "fiat-croma.png",
+            "pricePerDay": 20,
+            "count": 1
+        }
+    ]
+}

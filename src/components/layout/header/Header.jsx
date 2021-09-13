@@ -10,7 +10,7 @@ export default function Header() {
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="#">Customers</Nav.Link>
-                            <Nav.Link href="#">Cars</Nav.Link>
+                            <Nav.Link href="/vehicles">Vehicles</Nav.Link>
                         </Nav>
                         <Nav className="justify-content-end">
                             <Nav.Link href="/login">Login</Nav.Link>
