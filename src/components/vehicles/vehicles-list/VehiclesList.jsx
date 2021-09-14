@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllVehicles } from "../../../core/services/VehicleService";
+import { deleteVehicle, getAllVehicles } from "../../../core/services/VehicleService";
 import VehicleCard from "../vehicle-card/VehicleCard";
 
 export default function VehiclesList() {
@@ -11,9 +11,17 @@ export default function VehiclesList() {
         })
     }, []);
 
+    const onVehicleDelete = (id) => {
+        deleteVehicle(id).then(response => {
+            setVehicles((prevState) => {
+                return prevState.filter(v => v.id !== id);
+            })
+        });
+    }
+
     return (
         <div className="vehicles-list-wrapper">
-            {vehicles.map(vehicle => <VehicleCard key={vehicle.id} vehicle={vehicle}></VehicleCard>)}
+            {vehicles.map(vehicle => <VehicleCard key={vehicle.id} vehicle={vehicle} onVehicleDelete={onVehicleDelete} />)}
         </div>
     );
 }

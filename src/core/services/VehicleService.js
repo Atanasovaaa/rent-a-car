@@ -17,3 +17,7 @@ export function saveVehicle(vehicleData) {
 
     return;
 }
+
+export function deleteVehicle(id) {
+    return axios.delete(`${apiUrl}/vehicles/${id}`);
+}

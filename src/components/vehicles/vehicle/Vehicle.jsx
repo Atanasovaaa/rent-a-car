@@ -3,17 +3,17 @@ import { getVehicleById } from "../../../core/services/VehicleService";
 import VehicleCard from "../vehicle-card/VehicleCard";
 
 export default function Vehicle(props) {
-    const [vehicle, setVehicle] = useState(null);
-
+    const [vehicle, setVehicle] = useState({});
+    
     useEffect(() => {
-        getVehicleById(props.computedMatch.params.id).then(response => {
+        getVehicleById(props.match.params.id).then(response => {
             setVehicle(response.data);
         })
-    }, [props.computedMatch.params.id])
+    }, [props.match.params.id])
     
     return (
-        <div className="vehicle-info-wrapper d-flex">
-            <VehicleCard vehicle={vehicle}></VehicleCard>
+        <div className="vehicle-info-wrapper">
+            <VehicleCard vehicle={vehicle} />
         </div>
     );
 }
