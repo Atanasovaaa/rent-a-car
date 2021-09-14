@@ -72,5 +72,61 @@
       "pricePerDay": 20,
       "count": 1
     }
+  ],
+  "customers": [
+    {
+      "id": "6140b72330f38684023bc5ee",
+      "name": "Brigitte Newton",
+      "age": 40,
+      "gender": "female",
+      "phone": "+1 (893) 524-3752",
+      "email": "brigittenewton@ersum.com",
+      "password": 123456
+    },
+    {
+      "id": "6140b723f195872e5860ef9c",
+      "name": "Whitfield Castaneda",
+      "age": 38,
+      "gender": "male",
+      "phone": "+1 (831) 444-2301",
+      "email": "whitfieldcastaneda@ersum.com",
+      "password": 123456
+    },
+    {
+      "id": "6140b7232c857e2d682d8d9d",
+      "name": "Ernestine Salazar",
+      "age": 25,
+      "gender": "female",
+      "phone": "+1 (964) 555-2356",
+      "email": "ernestinesalazar@ersum.com",
+      "password": 123456
+    },
+    {
+      "id": "6140b723a9d9ec7bab785676",
+      "name": "Maxwell Hunt",
+      "age": 33,
+      "gender": "male",
+      "phone": "+1 (940) 447-3435",
+      "email": "maxwellhunt@ersum.com",
+      "password": 123456
+    },
+    {
+      "id": "6140b7232ede10672a0b8334",
+      "name": "Jeannette Walter",
+      "age": 28,
+      "gender": "female",
+      "phone": "+1 (875) 504-2734",
+      "email": "jeannettewalter@ersum.com",
+      "password": 123456
+    },
+    {
+      "id": "6140b723c297b6428ce7ba3f",
+      "name": "Hensley Stokes",
+      "age": 22,
+      "gender": "male",
+      "phone": "+1 (922) 502-3934",
+      "email": "hensleystokes@ersum.com",
+      "password": 123456
+    }
   ]
 }
