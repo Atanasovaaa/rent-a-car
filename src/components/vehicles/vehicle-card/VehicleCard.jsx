@@ -1,14 +1,18 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { getLoggedAdmin, getLoggedCustomer } from "../../../core/services/AuthService";
 
 const vehicleContent = (vehicle, onVehicleDelete) => {
+
+    const loggedAdmin = getLoggedAdmin();
+    const loggedCustomer = getLoggedCustomer();
 
     return(
         <div className="vehicle-card-wrapper">
             <Card style={{ width: '20em'}}>
                 <Card.Img variant="top" src={`http://localhost:3000/cars/${vehicle.image}`} style={{width:'100%', height: 'auto'}}/>
                 <Card.Body>
-                    <Card.Title>{vehicle.brand} {vehicle.model}</Card.Title>
+                <Card.Title> <Link to={`/vehicles/${vehicle.id}`} > {vehicle.brand} {vehicle.model} </Link></Card.Title> 
                         <div>
                             <div>
                                 <strong>Construction year: </strong><span>{vehicle.year}</span>
@@ -31,9 +35,10 @@ const vehicleContent = (vehicle, onVehicleDelete) => {
                         </div>
                         <hr/>
                         <div >
-                            <Link to={`/vehicles/${vehicle.id}`} className="btn btn-dark w-100 my-2">View Vehicle</Link>
-                            <Link to={`/vehicles/edit/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Edit Vehicle</Link>
-                            <button className="btn btn-danger w-100 my-2" onClick={() => onVehicleDelete(vehicle.id)}>Delete Vehicle</button>
+                            { loggedCustomer && <Link to="#" className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Rent</Link> }
+
+                            { loggedAdmin && <Link to={`/vehicles/edit/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Edit Vehicle</Link> }
+                            { loggedAdmin && <button className="btn btn-danger w-100 my-2" onClick={() => onVehicleDelete(vehicle.id)}>Delete Vehicle</button> }
                         </div>
                 </Card.Body>
             </Card>

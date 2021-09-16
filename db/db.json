@@ -10,7 +10,7 @@
       "numberOfSeats": 5,
       "image": "alfa-romeo-mito.png",
       "pricePerDay": "20",
-      "count": "2"
+      "count": "5"
     },
     {
       "id": "613f2e5dd221f913ebdb1600",
@@ -40,7 +40,7 @@
       "id": "613f2e5dec98180fb9296641",
       "brand": "Chevrolet",
       "model": "Orlando",
-      "year": 2019,
+      "year": "2019",
       "vehicleType": "hybrid",
       "fuelType": "petrol",
       "numberOfSeats": 5,
@@ -77,10 +77,10 @@
     {
       "id": "6140b72330f38684023bc5ee",
       "name": "Brigitte Newton",
-      "age": 40,
+      "age": "23",
       "gender": "female",
       "phone": "+1 (893) 524-3752",
-      "email": "brigittenewton@ersum.com",
+      "email": "customer@customer.com",
       "password": 123456
     },
     {
@@ -127,6 +127,15 @@
       "phone": "+1 (922) 502-3934",
       "email": "hensleystokes@ersum.com",
       "password": 123456
+    }
+  ],
+  "admins": [
+    {
+      "id": "6141f4bb74542f0aafe782f1",
+      "name": "Denise Ramsey",
+      "email": "admin@admin.com",
+      "password": 123456,
+      "isAdmin": true
     }
   ]
 }

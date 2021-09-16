@@ -18,3 +18,7 @@ export function saveCustomer(customerData) {
 
     return register(customerData);
 }
+
+export function deleteCustomer(id) {
+    return axios.delete(`${apiUrl}/customers/${id}`);
+}

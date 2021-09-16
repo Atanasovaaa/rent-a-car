@@ -6,10 +6,11 @@ export default function Vehicle(props) {
     const [vehicle, setVehicle] = useState({});
     
     useEffect(() => {
-        getVehicleById(props.match.params.id).then(response => {
+        getVehicleById(props.computedMatch.params.id).then(response => {
+            console.log(response.data);
             setVehicle(response.data);
         })
-    }, [props.match.params.id])
+    }, [props.computedMatch.params.id])
     
     return (
         <div className="vehicle-info-wrapper">
