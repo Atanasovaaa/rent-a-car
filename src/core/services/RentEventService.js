@@ -6,6 +6,10 @@ export function getAllRents() {
     return axios.get(`${apiUrl}/rents`);
 }
 
+export function getRentEventById(id) {
+    return axios.get(`${apiUrl}/rents/${id}`);
+}
+
 export function createRentEvent(rentData, totalPrice) {
     rentData = {
         ...rentData,

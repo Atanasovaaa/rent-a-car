@@ -17,10 +17,6 @@ export default function RentEvent(props) {
 
     const customerId = getLoggedCustomer();
     const vehicleId = props.computedMatch.params.id;
-    // console.log("Customer id:");
-    // console.log(customerId.id);
-    // console.log("Vehicle id:");
-    // console.log(vehicleId);
 
     const [rentEvent, setRentEvent] = useState({
         customerId: customerId.id,
@@ -73,9 +69,7 @@ export default function RentEvent(props) {
         if(!customer.rentCar) {
             customer.rentCar = true;
         }
-        console.log(customer);
         saveCustomer(customer);
-        
     }
 
     return (
@@ -86,17 +80,17 @@ export default function RentEvent(props) {
                 <Row className="mb-3">
                     <Form.Group as={Col}>
                         <Form.Label>Brand</Form.Label>
-                        <Form.Control type="text" id="brand" name="brand" value={vehicle.brand} onChange={onInputChange} required />
+                        <Form.Control disabled type="text" id="brand" name="brand" value={vehicle.brand} onChange={onInputChange} required />
                     </Form.Group>
 
                     <Form.Group as={Col}>
                         <Form.Label>Model</Form.Label>
-                        <Form.Control type="text" id="model" name="model" value={vehicle.model} onChange={onInputChange} required />
+                        <Form.Control disabled type="text" id="model" name="model" value={vehicle.model} onChange={onInputChange} required />
                     </Form.Group>    
 
                     <Form.Group as={Col}>
                         <Form.Label>Price per Day</Form.Label>
-                        <Form.Control type="text" id="pricePerDay" name="pricePerDay" value={vehicle.pricePerDay} onChange={onInputChange} required />
+                        <Form.Control disabled type="text" id="pricePerDay" name="pricePerDay" value={vehicle.pricePerDay} onChange={onInputChange} required />
                     </Form.Group>             
                 </Row>
                 <Row className="mb-3">
@@ -112,7 +106,7 @@ export default function RentEvent(props) {
                 <Row className="mb-3">
                     <Form.Group as={Col}>
                         <Form.Label>Start Date and Time</Form.Label>
-                        <DatePicker selected={startDate} id="startDate" name="startDate" value={rentEvent.startDate} onChange={startDate => setStartDate(startDate)} showTimeSelect dateFormat="Pp"/>
+                        <DatePicker className="form-control" selected={startDate} id="startDate" name="startDate" value={rentEvent.startDate} onChange={startDate => setStartDate(startDate)} showTimeSelect dateFormat="Pp"/>
                     </Form.Group>  
                     <Form.Group as={Col}>
                         <Form.Label>Days</Form.Label>
@@ -120,7 +114,7 @@ export default function RentEvent(props) {
                     </Form.Group>     
                     <Form.Group as={Col}>
                         <Form.Label>Price</Form.Label>
-                        {/* <Form.Control type="price" id="price" name="price" value={price}/> */}
+                        <Form.Control type="price" id="price" name="price" value={totalPrice()}/>
                     </Form.Group>                       
                     <Form.Group>
 
