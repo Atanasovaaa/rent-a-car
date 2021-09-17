@@ -49,11 +49,6 @@ export default function VehicleEdit(props) {
         <div className="vehicle-edit-form">
             <Form onSubmit={onFormSubmit}>
                 <Row className="mb-3">
-                    {/* <Form.Group as={Col}>
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="file" id="image" name="image" value={editedVehicle.image} onChange={onInputChange} required />
-                    </Form.Group> */}
-
                     <Form.Group as={Col}>
                         <Form.Label>Brand</Form.Label>
                         <Form.Control type="text" id="brand" name="brand" value={editedVehicle.brand} onChange={onInputChange} required />

@@ -35,7 +35,7 @@ const vehicleContent = (vehicle, onVehicleDelete) => {
                         </div>
                         <hr/>
                         <div >
-                            { loggedCustomer && <Link to="#" className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Rent</Link> }
+                            { vehicle.count>0 && loggedCustomer && <Link to={`/rent/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Rent</Link> }
 
                             { loggedAdmin && <Link to={`/vehicles/edit/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Edit Vehicle</Link> }
                             { loggedAdmin && <button className="btn btn-danger w-100 my-2" onClick={() => onVehicleDelete(vehicle.id)}>Delete Vehicle</button> }

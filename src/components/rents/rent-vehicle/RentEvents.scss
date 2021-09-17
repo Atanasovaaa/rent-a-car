@@ -1,0 +1,19 @@
+.rent-vehicle-form {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .date-picker {
+    display: block;
+  }
+
+  .react-datepicker-wrapper {
+    margin: 12px 0;
+    width: 100%;
+
+    input {
+      padding: 4px 12px;
+    }
+  }
+}
