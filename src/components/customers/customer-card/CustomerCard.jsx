@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const customerContent = (customer, onCustomerDelete) => {
 
     return(
-        <div className="vehicle-card-wrapper">
+        <div className="card-wrapper">
             <Card style={{ width: '20em'}}>
                 <Card.Body>
                 <Card.Title> <Link to={`/customers/${customer.id}`} > {customer.name}</Link></Card.Title> 

@@ -10,7 +10,7 @@
       "numberOfSeats": 5,
       "image": "alfa-romeo-mito.png",
       "pricePerDay": "20",
-      "count": 3
+      "count": 4
     },
     {
       "id": "613f2e5dd221f913ebdb1600",
@@ -22,7 +22,7 @@
       "numberOfSeats": 5,
       "image": "audi-a5.png",
       "pricePerDay": 80,
-      "count": 3
+      "count": "5"
     },
     {
       "id": "613f2e5d821d869d9dfdcb4d",
@@ -70,7 +70,7 @@
       "numberOfSeats": 5,
       "image": "fiat-croma.png",
       "pricePerDay": 20,
-      "count": 1
+      "count": 0
     }
   ],
   "customers": [
@@ -160,6 +160,30 @@
       "days": "10",
       "price": "186.00",
       "id": 2
+    },
+    {
+      "customerId": "6140b72330f38684023bc5ee",
+      "vehicleId": "613f2e5d9b69de60371a94c6",
+      "startDate": "2021-09-19T13:22:04.689Z",
+      "days": "4",
+      "price": "76.00",
+      "id": 3
+    },
+    {
+      "customerId": "6140b72330f38684023bc5ee",
+      "vehicleId": "613f2e5d0bb30f3dd3a2faf2",
+      "startDate": "2021-09-19T13:30:40.761Z",
+      "days": "7",
+      "price": "130.20",
+      "id": 4
+    },
+    {
+      "customerId": "6140b72330f38684023bc5ee",
+      "vehicleId": "613f2e5d9b69de60371a94c6",
+      "startDate": "2021-09-19T13:39:00.717Z",
+      "days": "3",
+      "price": "60.00",
+      "id": 5
     }
   ]
 }

@@ -46,7 +46,7 @@ export default function VehicleEdit(props) {
     return (
         <>
         { shouldRedirect && <Redirect to="/"/> }
-        <div className="vehicle-edit-form">
+        <div className="info-wrapper">
             <Form onSubmit={onFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
@@ -107,7 +107,7 @@ export default function VehicleEdit(props) {
 
                     <Form.Group as={Col}>
                         <Form.Label>Available Cars</Form.Label>
-                        <Form.Control type="text" id="count" name="count" value={editedVehicle.count || ""} onChange={onInputChange} required />
+                        <Form.Control type="number" id="count" name="count" value={editedVehicle.count || ""} onChange={onInputChange} required />
                     </Form.Group>
                 </Row>
 

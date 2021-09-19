@@ -12,7 +12,7 @@ export default function Vehicle(props) {
     }, [props.computedMatch.params.id])
     
     return (
-        <div className="vehicle-info-wrapper">
+        <div className="info-wrapper">
             <VehicleCard vehicle={vehicle} />
         </div>
     );

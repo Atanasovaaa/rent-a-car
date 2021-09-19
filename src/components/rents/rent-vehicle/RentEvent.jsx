@@ -3,7 +3,7 @@ import { getLoggedCustomer } from "../../../core/services/AuthService";
 import { getCustomerById, saveCustomer } from "../../../core/services/CustomerService";
 import { getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
 import DatePicker from "react-datepicker";
-import { Col, Form, Row } from "react-bootstrap";
+import { Alert, Col, Form, Row } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import { saveRent } from "../../../core/services/RentEventService";
 import { Redirect } from "react-router";
@@ -75,11 +75,12 @@ export default function RentEvent(props) {
         saveCustomer(customer);
     }
 
-    let value = totalPrice();
+    let finalPrice = totalPrice();
+
     return (
         <>
         { shouldRedirect && <Redirect to="/"/> }
-        <div className="rent-vehicle-form">
+        <div className="info-wrapper">
             <Form onSubmit={onFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
@@ -118,7 +119,7 @@ export default function RentEvent(props) {
                     </Form.Group>     
                     <Form.Group as={Col}>
                         <Form.Label>Price</Form.Label>
-                        <Form.Control type="price" id="price" name="price" readOnly value={value || ""}/>
+                        <Form.Control type="price" id="price" name="price" readOnly value={finalPrice || ""}/>
                     </Form.Group>                       
                     <Form.Group>
 
@@ -128,6 +129,7 @@ export default function RentEvent(props) {
                 <Button className="btn btn-success" type="submit">
                     Save
                 </Button>
+
             </Form>
             
         </div>

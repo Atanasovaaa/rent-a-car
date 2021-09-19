@@ -14,7 +14,7 @@ export default function Customer(props) {
 
 
     return (
-        <div className="vehicle-info-wrapper">
+        <div className="info-wrapper">
             <CustomerCard customer={customer} />
         </div>
     );

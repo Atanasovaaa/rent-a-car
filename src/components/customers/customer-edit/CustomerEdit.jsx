@@ -42,7 +42,7 @@ export default function CustomerEdit(props) {
     return (
         <>
         { shouldRedirect && <Redirect to="/customers-list"/> }
-        <div className="vehicle-edit-form">
+        <div className="info-wrapper">
             <Form onSubmit={onFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col}>

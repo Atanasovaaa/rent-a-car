@@ -20,7 +20,7 @@ export default function CustomersList() {
     }
 
     return (
-        <div className="vehicles-list-wrapper">
+        <div className="list-wrapper">
             {customers.map(customer => <CustomerCard key={customer.id} customer={customer} onCustomerDelete={onCustomerDelete} />)}
         </div>
     );

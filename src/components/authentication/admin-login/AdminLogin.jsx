@@ -33,7 +33,7 @@ export default function AdminLogin(props) {
     return (
         <>
             { redirect && <Redirect to="/"/> }
-            <div className="login-form">
+            <div className="info-wrapper">
                 <form onSubmit={onFormSubmit} style={{width: "30rem"}}>
                     { error && <span className="text-danger" >{error}</span> }
 

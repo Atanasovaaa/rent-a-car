@@ -32,7 +32,7 @@ export default function Register(props) {
     return (
         <>
             { redirect && <Redirect to="/login"/> }
-            <div className="register-form">
+            <div className="info-wrapper">
                 <form onSubmit={onFormSubmit} style={{width: "30rem"}}>
                     { error && <span className="text-danger" >{error}</span> }
                     <Form.Group className="mb-3" >

@@ -8,7 +8,7 @@ const vehicleContent = (vehicle, onVehicleDelete) => {
     const loggedCustomer = getLoggedCustomer();
 
     return(
-        <div className="vehicle-card-wrapper">
+        <div className="card-wrapper">
             <Card style={{ width: '20em'}}>
                 <Card.Img variant="top" src={`http://localhost:3000/cars/${vehicle.image}`} style={{width:'100%', height: 'auto'}}/>
                 <Card.Body>
