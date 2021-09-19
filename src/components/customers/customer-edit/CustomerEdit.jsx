@@ -47,18 +47,18 @@ export default function CustomerEdit(props) {
                 <Row className="mb-3">
                     <Form.Group as={Col}>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text"  id="name" name="name" value={editedCustomer.name} onChange={onInputChange} required />
+                        <Form.Control type="text"  id="name" name="name" value={editedCustomer.name|| ""} onChange={onInputChange} required />
                     </Form.Group>
 
                     <Form.Group as={Col}>
                         <Form.Label>Age</Form.Label>
-                        <Form.Control type="text" id="age" name="age" value={editedCustomer.age} onChange={onInputChange} required />
+                        <Form.Control type="text" id="age" name="age" value={editedCustomer.age|| ""} onChange={onInputChange} required />
                     </Form.Group>                
                 </Row>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
                         <Form.Label>Gender</Form.Label>
-                        <Form.Select value={editedCustomer.gender} id="gender" name="gender" onChange={onInputChange} required>
+                        <Form.Select value={editedCustomer.gender || ""} id="gender" name="gender" onChange={onInputChange} required>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </Form.Select>
@@ -66,13 +66,13 @@ export default function CustomerEdit(props) {
 
                     <Form.Group as={Col}>
                         <Form.Label>Phone</Form.Label>
-                        <Form.Control type="tel"  id="phone" name="phone" value={editedCustomer.phone} onChange={onInputChange} required />
+                        <Form.Control type="tel"  id="phone" name="phone" value={editedCustomer.phone|| ""} onChange={onInputChange} required />
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">  
                     <Form.Group as={Col}>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" id="email" name="email" value={editedCustomer.email} onChange={onInputChange} required />
+                        <Form.Control type="email" id="email" name="email" value={editedCustomer.email|| ""} onChange={onInputChange} required />
                     </Form.Group>  
                 </Row>
 

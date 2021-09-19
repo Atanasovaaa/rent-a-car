@@ -23,7 +23,6 @@ export default function Login(props) {
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        console.log(customerData);
         login(customerData).then(() => {
             setRedirect(true);
         })

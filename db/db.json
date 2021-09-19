@@ -10,7 +10,7 @@
       "numberOfSeats": 5,
       "image": "alfa-romeo-mito.png",
       "pricePerDay": "20",
-      "count": 5
+      "count": 3
     },
     {
       "id": "613f2e5dd221f913ebdb1600",
@@ -22,7 +22,7 @@
       "numberOfSeats": 5,
       "image": "audi-a5.png",
       "pricePerDay": 80,
-      "count": 4
+      "count": 3
     },
     {
       "id": "613f2e5d821d869d9dfdcb4d",
@@ -82,7 +82,7 @@
       "phone": "+1 (893) 524-3752",
       "email": "customer@customer.com",
       "password": 123456,
-      "rentCar": false
+      "rentCar": true
     },
     {
       "id": "6140b723f195872e5860ef9c",
@@ -147,18 +147,18 @@
   "rents": [
     {
       "customerId": "6140b72330f38684023bc5ee",
-      "vehicleId": "613f2e5d9b69de60371a94c6",
-      "startDate": "2021-09-17T13:30:36.299Z",
-      "days": "10",
-      "price": "186.00",
+      "vehicleId": "613f2e5dd221f913ebdb1600",
+      "startDate": "2021-09-19T12:48:16.664Z",
+      "days": "4",
+      "price": "304.00",
       "id": 1
     },
     {
       "customerId": "6140b72330f38684023bc5ee",
       "vehicleId": "613f2e5d9b69de60371a94c6",
-      "startDate": "2021-09-17T13:53:54.595Z",
-      "days": "6",
-      "price": "111.60",
+      "startDate": "2021-09-19T12:56:06.585Z",
+      "days": "10",
+      "price": "186.00",
       "id": 2
     }
   ]

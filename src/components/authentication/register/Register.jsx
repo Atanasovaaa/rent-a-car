@@ -23,7 +23,6 @@ export default function Register(props) {
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        console.log(customerData);
         register(customerData).then(() => {
             setRedirect(true);
         })

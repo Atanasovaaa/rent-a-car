@@ -12,7 +12,7 @@ export default function VehiclesList() {
     }, []);
 
     const onVehicleDelete = (id) => {
-        deleteVehicle(id).then(response => {
+        deleteVehicle(id).then(_ => {
             setVehicles((prevState) => {
                 return prevState.filter(v => v.id !== id);
             })
