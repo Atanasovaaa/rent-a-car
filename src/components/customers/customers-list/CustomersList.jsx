@@ -5,7 +5,7 @@ import CustomerCard from "../customer-card/CustomerCard";
 
 export default function CustomersList() {
     const dispatch = useDispatch();
-    const customers = useSelector(state => state.customers);
+    const customers = useSelector(state => state.customersReducer.customers);
     
     useEffect(() => {
         dispatch(getAllCustomersFromAPI());

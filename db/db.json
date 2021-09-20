@@ -6,11 +6,11 @@
       "model": "Mito",
       "year": "2019",
       "vehicleType": "economy",
-      "fuelType": "petrol",
+      "fuelType": "diesel",
       "numberOfSeats": 5,
       "image": "alfa-romeo-mito.png",
       "pricePerDay": "20",
-      "count": 4
+      "count": "5"
     },
     {
       "id": "613f2e5dd221f913ebdb1600",
@@ -77,7 +77,7 @@
     {
       "id": "6140b72330f38684023bc5ee",
       "name": "Brigitte Newton",
-      "age": "23",
+      "age": "25",
       "gender": "female",
       "phone": "+1 (893) 524-3752",
       "email": "customer@customer.com",
@@ -87,7 +87,7 @@
     {
       "id": "6140b723f195872e5860ef9c",
       "name": "Whitfield Castaneda",
-      "age": "30",
+      "age": "25",
       "gender": "male",
       "phone": "+1 (831) 444-2563",
       "email": "whitfieldcastaneda@ersum.com",

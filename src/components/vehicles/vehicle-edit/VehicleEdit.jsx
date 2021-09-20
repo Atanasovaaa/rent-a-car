@@ -1,46 +1,32 @@
 import Button from "@restart/ui/esm/Button";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import { getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
+import { clearSelectedVehicle, editVehicle, getVehicleByIdFromAPI, saveVehicleInAPI } from "../../../core/actions/vehicle-actions";
 
 export default function VehicleEdit(props) {
 
-    const [editedVehicle, setEditedVehicle] = useState({
-        brand: '',
-        model: '',
-        year: '',
-        vehicleType: '',
-        fuelType: '',
-        numberOfSeats: '',
-        image: '',
-        pricePerDay: '',
-        count: ''
-    });
-
+    const dispatch = useDispatch();
+    const editedVehicle = useSelector(state => state.vehiclesReducer.vehicle);
     const [shouldRedirect, setShouldRedirect] = useState(false);
 
+    
     useEffect(() => {
+        dispatch(clearSelectedVehicle());
         if(props.computedMatch.params.id) {
-            getVehicleById(props.computedMatch.params.id).then((response) => {
-                setEditedVehicle(response.data);
-            })
+            dispatch(getVehicleByIdFromAPI(props.computedMatch.params.id))
         }
-    }, [props.computedMatch.params.id])
+    }, [props.computedMatch.params.id, dispatch])
 
     const onInputChange = (event) => {
-        setEditedVehicle((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value.trim()
-        }));
+        dispatch(editVehicle({ [event.target.name]: event.target.value.trim() }))
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
-        saveVehicle(editedVehicle).then(_ => {
-            setShouldRedirect(true);
-        })
+        dispatch(saveVehicleInAPI(editedVehicle))
+        setShouldRedirect(true);
     }
     
     return (

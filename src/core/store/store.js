@@ -1,5 +1,13 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { customersReducer } from "../reducers/customers-reducer";
+import { vehiclesReducer } from "../reducers/vehicles-reducer";
 
-export const store = createStore(customersReducer, applyMiddleware(thunk));
+
+const rootReducer = combineReducers({
+    customersReducer,
+    vehiclesReducer
+  })
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));
+// console.log(store.getState())
