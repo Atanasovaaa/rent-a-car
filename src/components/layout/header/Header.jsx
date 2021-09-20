@@ -1,15 +1,20 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { getLoggedAdmin, getLoggedCustomer, logout } from "../../../core/services/AuthService";
+import { getLoggedAdmin,  logout } from "../../../core/services/AuthService";
+import { useSelector, useDispatch } from "react-redux";
+import { setLoggedCustomer } from "../../../core/actions/customer-actions";
 
 export default function Header() {
-    const loggedCustomer = getLoggedCustomer();
+    //const loggedCustomer = getLoggedCustomer();
     const loggedAdmin = getLoggedAdmin();
+    const loggedCustomer = useSelector(state => state.customersReducer.isCustomerLoggedIn);
+    const dispatch = useDispatch();
     
     const onLogout = () => {
         logout();
-        window.location.reload(false);
+        dispatch(setLoggedCustomer(false));
+        //window.location.reload(false);
     }
-    
+
     return (
             <header className="header">
                  <Navbar bg="dark" variant="dark">

@@ -2,15 +2,17 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getLoggedAdmin, getLoggedCustomer } from "../../../core/services/AuthService";
 import { ToastContainer, toast } from 'react-toastify';
+import { useSelector } from "react-redux";
 
-const vehicleContent = (vehicle, onVehicleDelete) => {
-
+const VehicleContent = ({vehicle, onVehicleDelete}) => {
+    const loggedCustomer = useSelector(state => state.customersReducer.isCustomerLoggedIn);
     const loggedAdmin = getLoggedAdmin();
-    const loggedCustomer = getLoggedCustomer();
+    //const loggedCustomer = getLoggedCustomer();
 
     function notify() {
         toast.success("The vehicle was deleted!", {
-            position: toast.POSITION.TOP_LEFT
+            position: toast.POSITION.TOP_LEFT,
+            theme: "colored"
           });
     }
 
@@ -50,7 +52,7 @@ const vehicleContent = (vehicle, onVehicleDelete) => {
                         </div>
                         <hr/>
                         <div >
-                            { vehicle.count>0 && loggedCustomer && <Link to={`/rent/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Rent</Link> }
+                            { vehicle.count > 0 && loggedCustomer && <Link to={`/rent/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Rent</Link> }
 
                             { loggedAdmin && <Link to={`/vehicles/edit/${vehicle.id}`} className="btn btn-primary w-100 my-2" style={{ color: "white"}}>Edit Vehicle</Link> }
                             { loggedAdmin && <button className="btn btn-danger w-100 my-2" onClick={onClick}>Delete Vehicle</button> }
@@ -63,6 +65,4 @@ const vehicleContent = (vehicle, onVehicleDelete) => {
 }
 
 
-export default function VehicleCard({vehicle, onVehicleDelete}) {
-    return vehicleContent(vehicle, onVehicleDelete);
-}
+export default VehicleContent;

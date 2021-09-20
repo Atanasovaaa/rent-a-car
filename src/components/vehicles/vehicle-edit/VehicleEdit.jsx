@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
+import { LOGIN_CUSTOMER } from "../../../core/action-types/customer-action-types";
 import { clearSelectedVehicle, editVehicle, getVehicleByIdFromAPI, saveVehicleInAPI } from "../../../core/actions/vehicle-actions";
 
 export default function VehicleEdit(props) {
@@ -25,7 +26,7 @@ export default function VehicleEdit(props) {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        dispatch(saveVehicleInAPI(editedVehicle))
+        dispatch({type: LOGIN_CUSTOMER, payload: true})
         setShouldRedirect(true);
     }
     

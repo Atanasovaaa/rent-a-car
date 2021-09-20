@@ -1,4 +1,4 @@
-import { CLEAR_SELECTED_CUSTOMER, DELETE_CUSTOMER, EDIT_CUSTOMER, GET_ALL_CUSTOMERS, GET_CUSTOMER_BY_ID, SAVE_CUSTOMER } from "../action-types/customer-action-types"
+import { CLEAR_SELECTED_CUSTOMER, DELETE_CUSTOMER, EDIT_CUSTOMER, GET_ALL_CUSTOMERS, GET_CUSTOMER_BY_ID, LOGIN_CUSTOMER, SAVE_CUSTOMER } from "../action-types/customer-action-types"
 import { deleteCustomer, getAllCustomers, getCustomerById, saveCustomer } from "../services/CustomerService"
 
 export function getAllCustomersFromAPI() {
@@ -60,5 +60,14 @@ export function clearSelectedCustomer() {
             type: CLEAR_SELECTED_CUSTOMER,
             payload: {}
         })
+    }
+}
+
+export function setLoggedCustomer(payload){
+    return dispatch =>{
+        dispatch({
+            type: LOGIN_CUSTOMER,
+            payload: payload
+        });
     }
 }

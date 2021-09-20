@@ -28,19 +28,19 @@ export async function adminLogin(adminData) {
 }
 
 export async function login(customerData) {
-    const customers = await (await getAllCustomers()).data;
+  getAllCustomers().then(customers =>{
+        const loggedCustomer = customers.find(
+            (c) => 
+                c.email === customerData.email && c.password.toString() === customerData.password
+        );
 
-    const loggedCustomer = customers.find(
-        (c) => 
-            c.email === customerData.email && c.password.toString() === customerData.password
-    );
+        if(loggedCustomer) {
+            localStorage.setItem("loggedCustomer", JSON.stringify(loggedCustomer));
+            return;
+        }
 
-    if(loggedCustomer) {
-        localStorage.setItem("loggedCustomer", JSON.stringify(loggedCustomer));
-        return;
-    }
-
-    throw new Error("Invalid email/password");
+        throw new Error("Invalid email/password");
+    });
 }
 
 export async function register(customerData) {

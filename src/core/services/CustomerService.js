@@ -3,8 +3,16 @@ import { register } from "./AuthService";
 
 const apiUrl = "http://localhost:3000";
 
-export async function getAllCustomers() {
-    return (await axios.get(`${apiUrl}/customers`)).data;
+export function getAllCustomers() {
+    return axios({
+        url: `${apiUrl}/customers`,
+        method: 'get',
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        }
+    })
+        .then(res => res.data)
+        .catch(error => Promise.reject(error));
 }
 
 export function getCustomerById(id) {
