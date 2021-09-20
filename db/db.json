@@ -87,9 +87,9 @@
     {
       "id": "6140b723f195872e5860ef9c",
       "name": "Whitfield Castaneda",
-      "age": 38,
+      "age": "30",
       "gender": "male",
-      "phone": "+1 (831) 444-2301",
+      "phone": "+1 (831) 444-2563",
       "email": "whitfieldcastaneda@ersum.com",
       "password": 123456,
       "rentCar": false
@@ -140,8 +140,7 @@
       "id": "6141f4bb74542f0aafe782f1",
       "name": "Denise Ramsey",
       "email": "admin@admin.com",
-      "password": 123456,
-      "isAdmin": true
+      "password": 123456
     }
   ],
   "rents": [

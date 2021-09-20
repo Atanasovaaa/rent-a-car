@@ -3,7 +3,7 @@ import { getLoggedCustomer } from "../../../core/services/AuthService";
 import { getCustomerById, saveCustomer } from "../../../core/services/CustomerService";
 import { getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
 import DatePicker from "react-datepicker";
-import { Alert, Col, Form, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import { saveRent } from "../../../core/services/RentEventService";
 import { Redirect } from "react-router";
@@ -52,7 +52,7 @@ export default function RentEvent(props) {
         return (totalPrice * ( (100-getDiscount(days)) / 100 )).toFixed(2); 
     }
 
-    const getDiscount =(localDays)=>{
+    const getDiscount = (localDays) =>{
         if(localDays > 10) return 10;
         if(localDays > 5) return 7;
         if(localDays > 3) return 5;

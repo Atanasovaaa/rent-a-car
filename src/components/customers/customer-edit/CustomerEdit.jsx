@@ -1,42 +1,32 @@
 import Button from "@restart/ui/esm/Button";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
-import { getCustomerById, saveCustomer } from "../../../core/services/CustomerService";
+import { clearSelectedCustomer, editCustomer, getCustomerByIdFromAPI, saveCustomerInAPI } from "../../../core/actions/customer-actions";
 
 export default function CustomerEdit(props) {
 
-    const [editedCustomer, setEditedCustomer ] = useState({
-        name: '',
-        age: '',
-        gender: '',
-        phone: '',
-        email: ''
-    });
-
+    const dispatch = useDispatch();
+    const editedCustomer = useSelector(state => state.customer);
     const [shouldRedirect, setShouldRedirect] = useState(false);
 
     useEffect(() => {
+        dispatch(clearSelectedCustomer());
         if(props.computedMatch.params.id) {
-            getCustomerById(props.computedMatch.params.id).then((response) => {
-                setEditedCustomer(response.data);
-            })
+            dispatch(getCustomerByIdFromAPI(props.computedMatch.params.id));
         }
-    }, [props.computedMatch.params.id]);
+    }, [props.computedMatch.params.id, dispatch]);
 
     const onInputChange = (event) => {
-        setEditedCustomer((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value.trim()
-        }));
+        dispatch(editCustomer({ [event.target.name]: event.target.value.trim() }))
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
-        saveCustomer(editedCustomer).then(_ => {
-            setShouldRedirect(true);
-        })
+        dispatch(saveCustomerInAPI(editedCustomer));
+        setShouldRedirect(true);
     }
     
     return (

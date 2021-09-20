@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
-import { deleteCustomer, getAllCustomers } from "../../../core/services/CustomerService";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCustomerFromAPI, getAllCustomersFromAPI } from "../../../core/actions/customer-actions";
 import CustomerCard from "../customer-card/CustomerCard";
 
 export default function CustomersList() {
-    const [customers, setCustomers] = useState([]);
-
+    const dispatch = useDispatch();
+    const customers = useSelector(state => state.customers);
+    
     useEffect(() => {
-        getAllCustomers().then(response => {
-            setCustomers(response.data);
-        })
-    }, []);
+        dispatch(getAllCustomersFromAPI());
+    }, [dispatch]);
 
     const onCustomerDelete = (id) => {
-        deleteCustomer(id).then(response => {
-            setCustomers((prevState) => {
-                return prevState.filter(c => c.id !== id);
-            })
-        });
+        dispatch(deleteCustomerFromAPI(id));
     }
 
     return (
         <div className="list-wrapper">
-            {customers.map(customer => <CustomerCard key={customer.id} customer={customer} onCustomerDelete={onCustomerDelete} />)}
+            { customers.map(customer => <CustomerCard key={customer.id} customer={customer} onCustomerDelete={onCustomerDelete} />)}
         </div>
     );
 }

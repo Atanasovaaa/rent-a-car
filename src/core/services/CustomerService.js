@@ -3,8 +3,8 @@ import { register } from "./AuthService";
 
 const apiUrl = "http://localhost:3000";
 
-export function getAllCustomers() {
-    return axios.get(`${apiUrl}/customers`);
+export async function getAllCustomers() {
+    return (await axios.get(`${apiUrl}/customers`)).data;
 }
 
 export function getCustomerById(id) {

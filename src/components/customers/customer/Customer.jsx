@@ -3,7 +3,7 @@ import { getCustomerById } from "../../../core/services/CustomerService";
 import CustomerCard from "../customer-card/CustomerCard";
 
 export default function Customer(props) {
-    const [customer, setCustomer] = useState({});
+    const [customer, setCustomer] = useState(null);
 
     useEffect(() => {
         getCustomerById(props.computedMatch.params.id).then(response => {

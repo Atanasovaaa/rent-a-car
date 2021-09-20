@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Alert } from "react-bootstrap";
 import { deleteVehicle, getAllVehicles } from "../../../core/services/VehicleService";
 import VehicleCard from "../vehicle-card/VehicleCard";
 
