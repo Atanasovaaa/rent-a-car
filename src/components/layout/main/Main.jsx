@@ -9,6 +9,7 @@ import CustomerEdit from "../../customers/customer-edit/CustomerEdit";
 import Customer from "../../customers/customer/Customer";
 import CustomersList from "../../customers/customers-list/CustomersList";
 import RentEvent from "../../rents/rent-vehicle/RentEvent";
+import RentsList from "../../rents/rents-list/RentsList";
 import VehicleEdit from "../../vehicles/vehicle-edit/VehicleEdit";
 import Vehicle from "../../vehicles/vehicle/Vehicle";
 import VehiclesList from "../../vehicles/vehicles-list/VehiclesList";
@@ -25,6 +26,8 @@ export default function Main() {
                 <AuthenticatedRoute exact path="/customer/create" component={CustomerEdit} />
                 <AuthenticatedRoute exact path="/customers-list" component={CustomersList} />
                 <AuthenticatedRoute exact path="/customer/edit/:id" component={CustomerEdit} />
+                <AuthenticatedRoute exact path="/rents" component={RentsList} />
+                <CustomerRoute exact path="/my-rents" component={RentsList} />
                 <CustomerRoute exact path="/rent/:id" component={RentEvent} />
                 <NonAuthenticatedRoute exact path="/register" component={Register} />
                 <NonAuthenticatedRoute exact path="/login" component={Login} />

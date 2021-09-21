@@ -2,18 +2,16 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
-
-
 const customerContent = (customer, onCustomerDelete) => {
 
     function notify() {
         toast.success("The customer was deleted!", {
             position: toast.POSITION.TOP_LEFT,
-            theme: "colored"
+            theme:"colored"
           });
     }
 
-    
+
     const onClick = (event) => {
         onCustomerDelete(customer.id);
         notify();
@@ -22,7 +20,6 @@ const customerContent = (customer, onCustomerDelete) => {
     return(
         <>
         <ToastContainer autoClose={3000} />
-
         <div className="card-wrapper">
             <Card style={{ width: '20em'}}>
                 <Card.Body>
@@ -49,7 +46,6 @@ const customerContent = (customer, onCustomerDelete) => {
                 </Card.Body>
             </Card>
         </div>
-
         </>
     );
 }

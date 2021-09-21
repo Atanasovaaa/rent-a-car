@@ -2,8 +2,14 @@ import axios from "axios";
 
 const apiUrl = "http://localhost:3000";
 
-export function getAllRents(customerId) {
+export function getAllRents() {    
     return axios.get(`${apiUrl}/rents`);
+}
+
+export async function getMyRents() {
+
+    return axios.get(`${apiUrl}/rents`);
+    
 }
 
 export function getRentEventById(id) {
@@ -25,4 +31,8 @@ export function saveRent(rentData, totalPrice) {
     }
 
     return createRentEvent(rentData, totalPrice);
+}
+
+export function deleteRent(id) {
+    return axios.delete(`${apiUrl}/rents/${id}`);
 }

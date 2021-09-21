@@ -26,7 +26,13 @@ export default function Header() {
                             <Nav.Link href="/vehicle/create">Create Vehicle</Nav.Link>
                             <Nav.Link href="/customers-list">Customers</Nav.Link>
                             <Nav.Link href="/customer/create">Create Customer</Nav.Link>
+                            <Nav.Link href="/rents">Rents</Nav.Link>
                         </Nav> }
+                        { loggedCustomer &&
+                        <Nav className="me-auto">
+                            <Nav.Link href="/my-rents">My Rents</Nav.Link>
+                        </Nav>
+                        }
                         <Nav className="justify-content-end">
                             <Nav.Link href="/register">Register</Nav.Link>
 

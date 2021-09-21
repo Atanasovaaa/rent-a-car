@@ -2,12 +2,10 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getLoggedAdmin, getLoggedCustomer } from "../../../core/services/AuthService";
 import { ToastContainer, toast } from 'react-toastify';
-import { useSelector } from "react-redux";
 
 const VehicleContent = ({vehicle, onVehicleDelete}) => {
     const loggedCustomer = useSelector(state => state.customersReducer.isCustomerLoggedIn);
     const loggedAdmin = getLoggedAdmin();
-    //const loggedCustomer = getLoggedCustomer();
 
     function notify() {
         toast.success("The vehicle was deleted!", {
@@ -21,10 +19,20 @@ const VehicleContent = ({vehicle, onVehicleDelete}) => {
         notify();
     }
 
+    function notify() {
+        toast.success("The vehicle was deleted!", {
+            position: toast.POSITION.TOP_LEFT
+          });
+    }
+
+    const onClick = (event) => {
+        onVehicleDelete(vehicle.id);
+        notify();
+    }
+
     return(
         <>
         <ToastContainer autoClose={3000} />
-        
         <div className="card-wrapper">
             <Card style={{ width: '20em'}}>
                 <Card.Img variant="top" src={`http://localhost:3000/cars/${vehicle.image}`} style={{width:'100%', height: 'auto'}}/>
