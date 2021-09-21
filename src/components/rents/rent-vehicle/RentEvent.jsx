@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getLoggedCustomer } from "../../../core/services/AuthService";
 import { getCustomerById, saveCustomer } from "../../../core/services/CustomerService";
 import { getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
-import DatePicker from "react-datepicker";
 import { Col, Form, Row } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import { saveRent } from "../../../core/services/RentEventService";
@@ -11,7 +10,6 @@ import { Redirect } from "react-router";
 export default function RentEvent(props) {
     const [customer, setCustomer] = useState([]);
     const [vehicle, setVehicle] = useState([]);
-    const [startDate, setStartDate] = useState(new Date());
     const [shouldRedirect, setShouldRedirect] = useState(false);
     const [days, setDays] = useState(0);
 
@@ -21,7 +19,7 @@ export default function RentEvent(props) {
     const [rentEvent, setRentEvent] = useState({
         customerId: customerId,
         vehicleId: vehicleId,
-        startDate: new Date(),
+        startDate: '',
         days: '',
         price: ''
     });    
@@ -42,8 +40,9 @@ export default function RentEvent(props) {
     const onInputChange = (event) => {
         setRentEvent((prevState) => ({
             ...prevState,
-            [event.target.name]: event.target.value.trim()
+            [event.target.name]: event.target.value
         }));
+
         setDays(event.target.value);
     }
 
@@ -68,14 +67,9 @@ export default function RentEvent(props) {
             vehicle.count--;
         }
         saveVehicle(vehicle);
-
-        if(!customer.rentCar) {
-            customer.rentCar = true;
-        }
-        saveCustomer(customer);
     }
-
-    let finalPrice = totalPrice();
+    
+    const finalPrice = totalPrice();
 
     return (
         <>
@@ -110,8 +104,8 @@ export default function RentEvent(props) {
                 </Row>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
-                        <Form.Label>Start Date and Time</Form.Label>
-                        <DatePicker className="form-control" selected={startDate} id="startDate" name="startDate" value={rentEvent.startDate || ""} onChange={startDate => setStartDate(startDate)} showTimeSelect dateFormat="Pp"/>
+                        <Form.Label>Start Date</Form.Label>
+                        <Form.Control type="date" id="startDate" name="startDate" value={rentEvent.startDate} onChange={onInputChange}/>
                     </Form.Group>  
                     <Form.Group as={Col}>
                         <Form.Label>Days</Form.Label>

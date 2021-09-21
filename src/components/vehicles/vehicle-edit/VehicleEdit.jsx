@@ -1,33 +1,46 @@
 import Button from "@restart/ui/esm/Button";
 import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import { LOGIN_CUSTOMER } from "../../../core/action-types/customer-action-types";
-import { clearSelectedVehicle, editVehicle, getVehicleByIdFromAPI, saveVehicleInAPI } from "../../../core/actions/vehicle-actions";
+import { getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
 
 export default function VehicleEdit(props) {
 
-    const dispatch = useDispatch();
-    const editedVehicle = useSelector(state => state.vehiclesReducer.vehicle);
+    const [editedVehicle, setEditedVehicle] = useState({
+        brand: '',
+        model: '',
+        year: '',
+        vehicleType: '',
+        fuelType: '',
+        numberOfSeats: '',
+        image: '',
+        pricePerDay: '',
+        count: ''
+    });
+
     const [shouldRedirect, setShouldRedirect] = useState(false);
 
-    
     useEffect(() => {
-        dispatch(clearSelectedVehicle());
         if(props.computedMatch.params.id) {
-            dispatch(getVehicleByIdFromAPI(props.computedMatch.params.id))
+            getVehicleById(props.computedMatch.params.id).then((response) => {
+                setEditedVehicle(response.data);
+            })
         }
-    }, [props.computedMatch.params.id, dispatch])
+    }, [props.computedMatch.params.id])
 
     const onInputChange = (event) => {
-        dispatch(editVehicle({ [event.target.name]: event.target.value.trim() }))
+        setEditedVehicle((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value
+        }));
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        dispatch({type: LOGIN_CUSTOMER, payload: true})
-        setShouldRedirect(true);
+
+        saveVehicle(editedVehicle).then(_ => {
+            setShouldRedirect(true);
+        })
     }
     
     return (
@@ -106,7 +119,5 @@ export default function VehicleEdit(props) {
         </div>
         
         </>
-    );
-    
-    
+    );    
 }

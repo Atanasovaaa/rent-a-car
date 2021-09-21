@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getLoggedCustomer } from "../../../core/services/AuthService";
 import { deleteRent, getAllRents, getMyRents } from "../../../core/services/RentEventService";
-import { getAllVehicles } from "../../../core/services/VehicleService";
+import { getAllVehicles, getVehicleById, saveVehicle } from "../../../core/services/VehicleService";
 import RentCard from "../rent-card/RentCard";
 
 export default function RentsList() {
@@ -29,10 +29,16 @@ export default function RentsList() {
     }, [])
 
 
-    const onRentDelete = (id) => {
-        deleteRent(id).then(_ => {
-            setRents((prevState) => {
-                return prevState.filter(v => v.id !== id);
+    const onRentDelete = (rent) => {
+        deleteRent(rent.id).then(_ => {
+            getVehicleById(rent.vehicleId).then(res => {
+                const vehicle = res.data;
+                vehicle.count += 1;
+                saveVehicle(vehicle).then(_ => {
+                    setRents((prevState) => {
+                        return prevState.filter(v => v.id !== rent.id);
+                    })
+                })
             })
         });
     }

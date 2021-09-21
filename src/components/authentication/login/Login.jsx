@@ -3,15 +3,11 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { login } from "../../../core/services/AuthService";
-import {useDispatch} from "react-redux";
-import { setLoggedCustomer } from "../../../core/actions/customer-actions";
-
 
 export default function Login(props) {
     const [customerData, setCustomerData] = useState(null);
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState("");
-    const dispatch = useDispatch();
 
     const onInputChange = (event) => {
         event.persist();
@@ -28,7 +24,6 @@ export default function Login(props) {
         event.preventDefault();
 
         login(customerData).then(() => {
-            dispatch(setLoggedCustomer(true));
             setRedirect(true);
         })
             .catch(err => setError(err.message));

@@ -10,13 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 ReactDOM.render(
-  <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </BrowserRouter>
-  </Provider>,  
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

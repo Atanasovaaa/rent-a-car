@@ -42,12 +42,12 @@ export default function Register(props) {
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Age</Form.Label>
-                        <Form.Control name="age" id="age" type="text" placeholder="Enter your age" onChange={onInputChange} required />
+                        <Form.Control name="age" id="age" type="number" placeholder="Enter your age" onChange={onInputChange} required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
                         <Form.Label>Gender</Form.Label>
-                        <Form.Select name="gender" id="gender" onChange={onInputChange} required>
+                        <Form.Select name="gender" id="gender" value="male" onChange={onInputChange} required>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </Form.Select>

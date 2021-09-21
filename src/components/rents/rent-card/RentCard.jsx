@@ -5,13 +5,13 @@ const rentContent = (rent, vehicle, onRentDelete) => {
 
     function notify() {
         toast.success("The rent was deleted!", {
-            position: toast.POSITION.TOP_LEFT
+            position: toast.POSITION.TOP_RIGHT
           });
     }
 
 
     const onClick = (event) => {
-        onRentDelete(rent.id);
+        onRentDelete(rent);
         notify();
     }
     
@@ -23,10 +23,7 @@ const rentContent = (rent, vehicle, onRentDelete) => {
                 <Card.Body>
                     <div>
                         <div>
-                            <strong>Vehicle Brand: </strong><span>{vehicle.map(vehicle => vehicle.brand)}</span>
-                        </div>
-                        <div>
-                            <strong>Vehicle Model: </strong><span>{vehicle.map(vehicle => vehicle.model)}</span>
+                            <strong>Vehicle: </strong><span>{vehicle.map(vehicle => vehicle.brand)} {vehicle.map(vehicle => vehicle.model)}</span>
                         </div>
                         <div>
                             <strong>Start date: </strong><span>{new Date(rent.startDate).toLocaleDateString('en-GB')}</span>

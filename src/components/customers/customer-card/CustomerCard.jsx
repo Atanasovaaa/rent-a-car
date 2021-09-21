@@ -6,7 +6,7 @@ const customerContent = (customer, onCustomerDelete) => {
 
     function notify() {
         toast.success("The customer was deleted!", {
-            position: toast.POSITION.TOP_LEFT,
+            position: toast.POSITION.TOP_RIGHT,
             theme:"colored"
           });
     }

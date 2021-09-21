@@ -27,33 +27,40 @@ export async function adminLogin(adminData) {
     throw new Error("Invalid email/password");
 }
 
-export async function login(customerData) {
-  getAllCustomers().then(customers =>{
-        const loggedCustomer = customers.find(
-            (c) => 
-                c.email === customerData.email && c.password.toString() === customerData.password
-        );
-
-        if(loggedCustomer) {
-            localStorage.setItem("loggedCustomer", JSON.stringify(loggedCustomer));
-            return;
-        }
-
-        throw new Error("Invalid email/password");
+export function login(customerData) {
+    const result = new Promise((resolve, reject) => {
+        getAllCustomers().then(customers =>{
+            const loggedCustomer = customers.find(
+                (c) => 
+                    c.email === customerData.email && c.password.toString() === customerData.password
+            );
+    
+            if(loggedCustomer) {
+                localStorage.setItem("loggedCustomer", JSON.stringify(loggedCustomer));
+                resolve(true);
+            }
+    
+            reject("Invalid email/password");
+        });
     });
+  return result;
 }
 
-export async function register(customerData) {
-    const customers = await (await getAllCustomers()).data;
+export function register(customerData) {
+    getAllCustomers().then(customers => {
+        const registerCustomer = customers.find(
+            (c) => c.email === customerData.email
+        );
 
-    if(customers.find((c) => c.email === customerData.email)) {
-        throw new Error("Email already exists!");
-    }
-
-    customerData = {
-        ...customerData,
-        gender: `male`
-    };
+        if(registerCustomer) {
+            throw new Error("Email already exist!");
+        }
+    
+        customerData = {
+            ...customerData,
+            gender: `male`
+        };
+    })  
 
     return axios.post(`${apiUrl}/customers`, customerData);
 }

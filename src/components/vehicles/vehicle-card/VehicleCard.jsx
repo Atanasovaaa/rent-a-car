@@ -4,24 +4,13 @@ import { getLoggedAdmin, getLoggedCustomer } from "../../../core/services/AuthSe
 import { ToastContainer, toast } from 'react-toastify';
 
 const VehicleContent = ({vehicle, onVehicleDelete}) => {
-    const loggedCustomer = useSelector(state => state.customersReducer.isCustomerLoggedIn);
+    const loggedCustomer = getLoggedCustomer();
     const loggedAdmin = getLoggedAdmin();
 
     function notify() {
         toast.success("The vehicle was deleted!", {
-            position: toast.POSITION.TOP_LEFT,
+            position: toast.POSITION.TOP_RIGHT,
             theme: "colored"
-          });
-    }
-
-    const onClick = (event) => {
-        onVehicleDelete(vehicle.id);
-        notify();
-    }
-
-    function notify() {
-        toast.success("The vehicle was deleted!", {
-            position: toast.POSITION.TOP_LEFT
           });
     }
 

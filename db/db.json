@@ -7,10 +7,10 @@
       "year": "2019",
       "vehicleType": "economy",
       "fuelType": "diesel",
-      "numberOfSeats": 5,
+      "numberOfSeats": "2",
       "image": "alfa-romeo-mito.png",
       "pricePerDay": "20",
-      "count": "5"
+      "count": 5
     },
     {
       "id": "613f2e5dd221f913ebdb1600",
@@ -21,8 +21,8 @@
       "fuelType": "diesel",
       "numberOfSeats": 5,
       "image": "audi-a5.png",
-      "pricePerDay": 80,
-      "count": "5"
+      "pricePerDay": "75",
+      "count": 4
     },
     {
       "id": "613f2e5d821d869d9dfdcb4d",
@@ -81,8 +81,7 @@
       "gender": "female",
       "phone": "+1 (893) 524-3752",
       "email": "customer@customer.com",
-      "password": 123456,
-      "rentCar": true
+      "password": 123456
     },
     {
       "id": "6140b723f195872e5860ef9c",
@@ -91,8 +90,7 @@
       "gender": "male",
       "phone": "+1 (831) 444-2563",
       "email": "whitfieldcastaneda@ersum.com",
-      "password": 123456,
-      "rentCar": false
+      "password": 123456
     },
     {
       "id": "6140b7232c857e2d682d8d9d",
@@ -101,8 +99,7 @@
       "gender": "female",
       "phone": "+1 (964) 555-2356",
       "email": "ernestinesalazar@ersum.com",
-      "password": 123456,
-      "rentCar": false
+      "password": 123456
     },
     {
       "id": "6140b723a9d9ec7bab785676",
@@ -111,8 +108,7 @@
       "gender": "male",
       "phone": "+1 (940) 447-3435",
       "email": "maxwellhunt@ersum.com",
-      "password": 123456,
-      "rentCar": false
+      "password": 123456
     },
     {
       "id": "6140b7232ede10672a0b8334",
@@ -121,8 +117,7 @@
       "gender": "female",
       "phone": "+1 (875) 504-2734",
       "email": "jeannettewalter@ersum.com",
-      "password": 123456,
-      "rentCar": false
+      "password": 123456
     },
     {
       "id": "6140b723c297b6428ce7ba3f",
@@ -131,8 +126,7 @@
       "gender": "male",
       "phone": "+1 (922) 502-3934",
       "email": "hensleystokes@ersum.com",
-      "password": 123456,
-      "rentCar": false
+      "password": 123456
     }
   ],
   "admins": [
@@ -175,14 +169,6 @@
       "days": "7",
       "price": "130.20",
       "id": 4
-    },
-    {
-      "customerId": "6140b72330f38684023bc5ee",
-      "vehicleId": "613f2e5d9b69de60371a94c6",
-      "startDate": "2021-09-19T13:39:00.717Z",
-      "days": "3",
-      "price": "60.00",
-      "id": 5
     }
   ]
 }
